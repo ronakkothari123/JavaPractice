@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class StringLib {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(vowelCount("i think, therefore i am")));
+        System.out.println(Arrays.toString(characterCount("i think, therefore i am")));
     }
 
     public static int[] vowelCount(String string){
@@ -19,5 +20,17 @@ public class StringLib {
 
         //returns the vowelCounts values
         return vowelCounts;
+    }
+
+    public static int[] characterCount(String string){
+        int[] characterCounter = new int[26];
+
+        for(int i = 0; i < string.length(); i++){
+            try{
+                characterCounter[(int) string.charAt(i) - 97]++;
+            } catch(IndexOutOfBoundsException error){}
+        }
+
+        return characterCounter;
     }
 }
